@@ -59,6 +59,6 @@ func main() {
 
 Don't forget to install the package!
 
-![Using the quote package](../img/Screenshot-2024-04-18-195941.png)
+![Using the quote package](../img/Screenshot-2024-04-18-200210.png)
 
 ---
