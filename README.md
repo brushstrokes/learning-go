@@ -2,6 +2,8 @@
 
 Welcome to your training repo for Go!
 
+[GoLang Tutorials](https://go.dev/doc/tutorial/)
+
 ---
 
 ## Getting Started

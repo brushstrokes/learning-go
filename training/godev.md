@@ -61,4 +61,57 @@ Don't forget to install the package!
 
 ![Using the quote package](../img/Screenshot-2024-04-18-200210.png)
 
+You can add new module requirements and sums. Go will add the quote module as a requirement, as well as a go.sum files for use in authenticating the module.
+
+> go mod tidy
+
+When you run **go mod tidy**, it located and downloaded the rsc.io/quote module that contains the package you imported. By default, it downloaded the lasted version -- v1.5.2
+
+## Create a Go Module
+
+This tutorial's suquence includes seven brief topics that each illustrate a different part of the language.
+
+1. Create a module - write a small module with functions you can call from another module
+2. Call your code from another module - import and use your new module
+3. Return and handle an error - add simple error handling
+4. Return a random greeting - handle data in slices (Go's dynamically-sized arrays)
+5. Return greetings for multiple people - store key/value pairs in a map
+6. Add a test - Use Go's built-in testing features to test your code
+7. Compile and install the application - compile and install your code locally
+
+### greetings.go
+
+Creating a Go module using the *go mod init*, giving it your module path - we will use **example.com/greetings** If you publish a module, this *must* be a path from which your module can be downloaded by Go tools. That would be your codes repo.
+
+```go
+package greetings
+
+import "fmt"
+
+// hello returns a greeting for the named person
+func Hello(name string) string {
+	// return a greeting that embeds the name in a message
+	message := fmt.Sprint("Hi,%v. Welcome", name)
+	return message
+}	
+```
+
+In this code, you declare a **greetings** package to collect related functions and implement a Hello function to return the greeting.
+
+This function takes a **name** parameter whose type is string. The function also returns a string. In Go, a function whose name starts with a capital can be called by a function not in the same package. This is known in Go as an exported name.
+
+> func Hello(name string) string
+
+* declare a message variable to hold your greeting
+
+In Go, the := operator is a shortcut for declaring and initializing a variable in one line (Go uses the value on the right to determine the variable's type). Taking the long way, you may have written this as:
+
+```golang
+var message string
+message = fmt.Sprintf("Hi, %v. Welcome!", name)
+```
+
+* Use the fmt package's [Sprintf function](https://pkg.go.dev/fmt/#Sprintf) to create a greeting message. The first argument is a format string, and Sprintf substitutes the name parameter's value for the %v format verb. Inserting the value of the **name** parameter completes the greeting text.
+* Return the formatted greeting text to the caller. 
+
 ---
