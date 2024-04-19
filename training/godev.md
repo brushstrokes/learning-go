@@ -30,8 +30,35 @@ func main() {
 
 * declar a *main* package (a package is a way to group functions, and it's made up of all the files in the same dir)
 * import **fmt** package, which contains functions for formatting text, including printing to the console
-    + (standard library functions)[https://pkg.go.dev/std]
+    + [standard library functions](https://pkg.go.dev/std)
 * implement a **main** function to print a message to the console. A main function executes by default when you run the **main** package.
 
+### Run your code
+
+> go run .
+
+## Call code in an external package
+
+When you need your code to do something that might have been implemented by someone else, you can look for a package that has functions you can use in your code.
+
+We'll spice up the code with [this package](https://pkg.go.dev/rsc.io/quote/v4).
+
+Use the following template to import the *quote* package.
+
+```go
+package main
+
+import "fmt"
+
+import "rsc.io/quote"
+
+func main() {
+    fmt.Println(quote.Go())
+}
+```
+
+Don't forget to install the package!
+
+![Using the quote package](../img/Screenshot-2024-04-18-195941.png)
 
 ---
